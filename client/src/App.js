@@ -4,6 +4,12 @@ function App() {
   return (
     <div className="App">
       <h1>CRUD APPLICATION</h1>
+
+      <div className="form">
+        <input type="text" name="movieName" />
+        <input type="text" name="review" />
+      </div>
+      
     </div>
   );
 }
