@@ -113,6 +113,7 @@ function App() {
             setWage(event.target.value);
           }}
         />
+        
         <button onClick={addEmployee}>Add Employee</button>
       </div>
       <div className="employees">
@@ -164,6 +165,7 @@ function App() {
                     setNewWage(event.target.value);
                   }}
                 />
+                
                 <button
                   onClick={() => {
                     updateEmployeeWage(val.id);
