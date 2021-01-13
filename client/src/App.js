@@ -9,7 +9,11 @@ function App() {
   const [position, setPosition] = useState("");
   const [wage, setWage] = useState(0);
 
-  const [newWage, setNewWage] = useState(0);
+  const [newName, setNewName] = useState(0);
+  const [newAge, setNewAge] = useState(1);
+  const [newCountry, setNewCountry] = useState(2);
+  const [newPosition, setNewPosition] = useState(3);
+  const [newWage, setNewWage] = useState(4);
 
   const [employeeList, setEmployeeList] = useState([]);
 
@@ -41,17 +45,17 @@ function App() {
   };
 
   const updateEmployeeWage = (id) => {
-    Axios.put("http://localhost:3001/update", { wage: newWage, id: id }).then(
+    Axios.put("http://localhost:3001/update", { name: newName, age: newAge, country: newCountry, position: newPosition, wage: newWage, id: id }).then(
       (response) => {
         setEmployeeList(
           employeeList.map((val) => {
             return val.id == id
               ? {
                   id: val.id,
-                  name: val.name,
-                  country: val.country,
-                  age: val.age,
-                  position: val.position,
+                  name: newName,
+                  country: newCountry,
+                  age: newAge,
+                  position: newPosition,
                   wage: newWage,
                 }
               : val;
@@ -102,7 +106,7 @@ function App() {
             setPosition(event.target.value);
           }}
         />
-        <label>Wage (year):</label>
+        <label>Wage (Ft/month):</label>
         <input
           type="number"
           onChange={(event) => {
@@ -125,9 +129,37 @@ function App() {
                 <h3>Wage: {val.wage}</h3>
               </div>
               <div>
+              <input
+                  type="text"
+                  placeholder="Modify Name"
+                  onChange={(event) => {
+                    setNewName(event.target.value);
+                  }}
+                />
                 <input
                   type="text"
-                  placeholder="2000..."
+                  placeholder="Modify Age"
+                  onChange={(event) => {
+                    setNewAge(event.target.value);
+                  }}
+                />
+                <input
+                  type="text"
+                  placeholder="Modify Country"
+                  onChange={(event) => {
+                    setNewCountry(event.target.value);
+                  }}
+                />
+                <input
+                  type="text"
+                  placeholder="Modify Position"
+                  onChange={(event) => {
+                    setNewPosition(event.target.value);
+                  }}
+                />
+                <input
+                  type="text"
+                  placeholder="Modify wage"
                   onChange={(event) => {
                     setNewWage(event.target.value);
                   }}

@@ -46,9 +46,13 @@ app.get("/employees", (req, res) => {
 app.put("/update", (req, res) => {
   const id = req.body.id;
   const wage = req.body.wage;
+  const name = req.body.name;
+  const age = req.body.age;
+  const country = req.body.country;
+  const position = req.body.position;
   db.query(
-    "UPDATE employees SET wage = ? WHERE id = ?",
-    [wage, id],
+    "UPDATE employees SET name = ?, age = ?, country = ?, position = ? , wage = ? WHERE id = ?",
+    [name, age, country, position, wage, id],
     (err, result) => {
       if (err) {
         console.log(err);
