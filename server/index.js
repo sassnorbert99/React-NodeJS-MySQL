@@ -1,38 +1,75 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
+const express = require("express");
 const app = express();
-const mysql = require('mysql');
+const mysql = require("mysql");
+const cors = require("cors");
 
-const db = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'sassnorbert99',
-    database: 'CRUDDataBase',
-});
 app.use(cors());
 app.use(express.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
-app.get("/api/get", (req, res)=> {
-    const sqlSelect = 
-    "SELECT * FROM movie_reviews";
-    db.query(sqlSelect, (err, result)=> {
-        res.send(result);
-    });
+const db = mysql.createConnection({
+  user: "root",
+  host: "localhost",
+  password: "sassnorbert99",
+  database: "employeeSystem",
 });
 
-app.post("/api/insert", (req, res)=> {
+app.post("/create", (req, res) => {
+  const name = req.body.name;
+  const age = req.body.age;
+  const country = req.body.country;
+  const position = req.body.position;
+  const wage = req.body.wage;
 
-    const movieName = req.body.movieName;
-    const movieReview = req.body.movieReview;
+  db.query(
+    "INSERT INTO employees (name, age, country, position, wage) VALUES (?,?,?,?,?)",
+    [name, age, country, position, wage],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send("Values Inserted");
+      }
+    }
+  );
+});
 
-    const sqlInsert = "INSERT INTO movie_reviews (movieName, movieReview) VALUES (?,?)";
-    db.query(sqlInsert, [movieName, movieReview], (err, result)=> {
-        console.log(result);
-    });
+app.get("/employees", (req, res) => {
+  db.query("SELECT * FROM employees", (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+app.put("/update", (req, res) => {
+  const id = req.body.id;
+  const wage = req.body.wage;
+  db.query(
+    "UPDATE employees SET wage = ? WHERE id = ?",
+    [wage, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
+
+app.delete("/delete/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM employees WHERE id = ?", id, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
 });
 
 app.listen(3001, () => {
-    console.log('running on port 3001');
+  console.log("Yey, your server is running on port 3001");
 });
