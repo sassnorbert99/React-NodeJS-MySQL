@@ -1,8 +1,18 @@
 import "./App.css";
 import { useState } from "react";
 import Axios from "axios";
+import React from "react";
+import ReactDOM from "react-dom";
+import ReactExport from "react-export-excel";
+const ExcelFile = ReactExport.ExcelFile;
+const ExcelSheet = ReactExport.ExcelFile.ExcelSheet;
+const ExcelColumn = ReactExport.ExcelFile.ExcelColumn;
+
+
+
 
 function App() {
+
   const [name, setName] = useState("");
   const [age, setAge] = useState(0);
   const [country, setCountry] = useState("");
@@ -16,6 +26,30 @@ function App() {
   const [newWage, setNewWage] = useState(4);
 
   const [employeeList, setEmployeeList] = useState([]);
+
+
+  const data = [
+    { firstname: "jill", lastname: "smith", age: 22 },
+    { firstname: "david", lastname: "warner", age: 23 },
+    { firstname: "nick", lastname: "james", age: 26 }
+  ];
+  const camelCase = (str) =>  {
+    return str.substring(0, 1).toUpperCase() + str.substring(1);
+  };
+  const filterColumns = (data) => {
+    // Get column names
+    const columns = Object.keys(data[0]);
+
+    // Remove by key (firstname)
+    const filterColsByKey = columns.filter(c => c !== 'firstname');
+
+    // OR use the below line instead of the above if you want to filter by index
+    // columns.shift()
+
+    return filterColsByKey // OR return columns
+  };
+
+
 
   const addEmployee = () => {
     Axios.post("http://localhost:3001/create", {
@@ -76,7 +110,25 @@ function App() {
   };
 
   return (
+    
     <div className="App">
+
+      <ExcelFile filename="test">
+        <ExcelSheet data={employeeList} name="Test">
+                    {
+                      //employeeList itt lesz a hiba
+                        filterColumns(data).map((col)=> {
+                            return <ExcelColumn label={camelCase(col)} value={col}/>
+                        })
+                    }
+                </ExcelSheet>
+      </ExcelFile>
+      <table id="table-to-xls">
+            </table>
+            
+
+
+
       <div className="information">
         <label>Name:</label>
         <input
