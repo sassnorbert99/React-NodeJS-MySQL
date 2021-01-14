@@ -29,8 +29,19 @@ function App() {
 
   //////////////////////////////////////////////////////
   const data = [
-    { firstname: setName, age: setAge, country: setCountry, position: setPosition, wage: setWage }
-    
+    //{ firstname: newName, age: newAge, country: setCountry, position: setPosition, wage: setWage }
+    employeeList.map((p, index) => {
+      return <tr key={index}>
+        <td>
+          {p.id}
+        </td>
+        <td >{p.name}</td>
+        <td >{p.age}</td>
+        <td >{p.country}</td>
+        <td >{p.position}</td>
+        <td >{p.wage}</td>
+      </tr>
+    })
   ];
   const camelCase = (str) =>  {
     return str.substring(0, 1).toUpperCase() + str.substring(1);
@@ -110,7 +121,7 @@ function App() {
     <div className="App">
 
       <ExcelFile filename="test">
-        <ExcelSheet data={employeeList} name="Test">
+        <ExcelSheet data={data} name="Test">
                     {
                       //employeeList itt lesz a hiba
                         filterColumns(data).map((col)=> {
