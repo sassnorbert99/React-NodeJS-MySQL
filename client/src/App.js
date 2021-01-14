@@ -29,19 +29,9 @@ function App() {
 
   //////////////////////////////////////////////////////
   const data = [
-    //{ firstname: newName, age: newAge, country: setCountry, position: setPosition, wage: setWage }
-    employeeList.map((p, index) => {
-      return <tr key={index}>
-        <td>
-          {p.id}
-        </td>
-        <td >{p.name}</td>
-        <td >{p.age}</td>
-        <td >{p.country}</td>
-        <td >{p.position}</td>
-        <td >{p.wage}</td>
-      </tr>
-    })
+    { firstname: newName, age: newAge, country: setCountry, position: setPosition, wage: setWage },
+    
+    
   ];
   const camelCase = (str) =>  {
     return str.substring(0, 1).toUpperCase() + str.substring(1);
