@@ -8,12 +8,14 @@ Paraméterek:
 - backend: Node.js
 - adatbázis: mysql (mysql workbench)
 
+
 LinkedIn oldal építése Node.js és React segítségével
 web4 mappa tartalmazza a webprogramozáshoz elkészített beadandó dolgozatomat
 Weblapom munkások, illetve a facebooktól elvárt posztolás, lájkolás lehetőségek kezelését teszi lehetővé egy felhasználó számára, melyben feltudja tüntetni egyes munka cikkjük címét, nevét, illetve képét, valamint ezeket like-olni lehet más felhasználóknak.
 
+
 Alkalmazásomban felhasználók tudnak regisztrálni, majd a regisztrációt követően posztokat feltölteni, illetve aktuálisan feltöltött álláskeresők nevét listázni, azokhoz elemeket hozzáadni. A felhasználó a saját posztját szerkesztheti, illetve törölheti, mások posztjait azonban csak megtekintheti és lájkolhatja.  
-Minden mezei felhasználó csak a tulajdonában lévő posztot tudja szerkeszteni illetve törölni
+Minden mezei felhasználó csak a tulajdonában lévő posztot tudja szerkeszteni illetve törölni.
 
 ## Szerepkörök:  
 -mezei felhasználó: regisztrálás során bekerül az adatbázisba, innen elérhetővé válik számára a weblap által kínált szolgáltatás 
