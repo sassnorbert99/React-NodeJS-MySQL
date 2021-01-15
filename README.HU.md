@@ -2,6 +2,7 @@
 
 # LinkedIn Weblap
 ## Készítette: Sass-Gyarmati Norbert
+## link: https://github.com/sassnorbert99/web4
 
 Paraméterek: 
 - frontend: React
