@@ -30,3 +30,12 @@ Regisztrációt követően a felhasználó posztokat készíthet, melyet más fe
 A poszt 4 fő részből áll:
 - posztolás során meg kell adni a címet, egy leírást, illetve igény esetén képet lehet feltüntetni egy adott cégről, munkahelyről
 - posztolás után a home (főoldal) ikonjára rákattintva megjelenik és mindenki számára elérhetővé válik. 
+
+## álláskeresők
+Az álláskeresők az employee headerben található fülre kattintás után lesz elérhető. Egy álláskereső az alábbi paraméterekkel rendelkezik:
+- név: A munkavállaló teljes neve
+- kor: munkavállaló kora
+- ország: A munkavállaló születési országa
+- pozíció: az adott pozíciót betöltő munkavállaló
+- bér: A bérezést egy hónapra vonatkozóan számoljuk
+
