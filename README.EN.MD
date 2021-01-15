@@ -1,5 +1,6 @@
 # LinkedIn webpage
 ## Made by: Norbert Sass-Gyarmati
+## Link: https://github.com/sassnorbert99/web4
 
 Parameters:
 - frontend: React
