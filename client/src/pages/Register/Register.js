@@ -23,14 +23,14 @@ function Register() {
       <div className="RegisterForm">
         <input
           type="text"
-          placeholder="Username..."
+          placeholder="Username"
           onChange={(event) => {
             setUsername(event.target.value);
           }}
         />
         <input
           type="password"
-          placeholder="Password..."
+          placeholder="Password"
           onChange={(event) => {
             setPassword(event.target.value);
           }}

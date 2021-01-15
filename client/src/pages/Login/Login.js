@@ -33,14 +33,14 @@ function Login() {
       <div className="LoginForm">
         <input
           type="text"
-          placeholder="Username..."
+          placeholder="Username"
           onChange={(event) => {
             setUsername(event.target.value);
           }}
         />
         <input
           type="password"
-          placeholder="Password..."
+          placeholder="Password"
           onChange={(event) => {
             setPassword(event.target.value);
           }}
