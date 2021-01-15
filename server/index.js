@@ -1,13 +1,15 @@
 const express = require("express");
 const app = express();
-const mysql = require("mysql");
 const cors = require("cors");
-
-
-
+const mysql = require("mysql");
 
 app.use(cors());
 app.use(express.json());
+
+const userRoute = require("./routes/User");
+app.use("/user", userRoute);
+const uploadRoute = require("./routes/Upload");
+app.use("/upload", uploadRoute);
 
 const db = mysql.createConnection({
   user: "root",
@@ -77,6 +79,6 @@ app.delete("/delete/:id", (req, res) => {
   });
 });
 
-app.listen(3001, () => {
-  console.log("server is running on port 3001");
+app.listen(3001, (req, res) => {
+  console.log("Server running...");
 });
