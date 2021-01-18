@@ -7,7 +7,7 @@ Parameters:
 - backend: Node.js
 - database: mysql (mysql workbench)
 
-Creating a LinkedIn webpage with using Nde.js for the backend and React for the frontend.
+Creating a LinkedIn webpage with using Node.js for the backend and React for the frontend.
 The web4 folder contains my exam for the Web programming 4 course.
 In this webpage, you can create some posts and you can use this web page as facebook as well. What's more, you can make a work opportunity, which contains about the headers, names, images and everyone can put their like in your post as well.
 
