@@ -15,7 +15,7 @@ function Upload() {
     formData.append("file", image[0]);
     formData.append("upload_preset", "vgmulp38");
     Axios.post(
-      `https://api.cloudinary.com/v1_1/pedro-machado-inc/image/upload`,
+      
       formData
     ).then((response) => {
       const fileName = response.data.public_id;
